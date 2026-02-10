@@ -13,7 +13,7 @@ connectDB();
 app.use(cors({
   origin: [
     'http://localhost:3000',
-    'https://optics-photonics-summit-2026.netlify.app',
+    'https://optics-photonics-2026-frontend.vercel.app',
     process.env.FRONTEND_URL
   ].filter(Boolean),
   credentials: true
