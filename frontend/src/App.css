@@ -1,0 +1,25 @@
+.App {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background: #f5f7fa;
+}
+
+#home, #about, #schedule, #speakers, #registration, #faq, #contact {
+  scroll-margin-top: 80px;
+}
