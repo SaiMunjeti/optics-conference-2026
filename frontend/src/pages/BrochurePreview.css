@@ -1,0 +1,436 @@
+.download-button-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.download-image-btn {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-image-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
+}
+
+.brochure-preview-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+.brochure-preview-header {
+  text-align: center;
+  padding: 40px 0;
+  border-bottom: 4px solid #1e3a8a;
+  margin-bottom: 50px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e3f2fd 100%);
+}
+
+.brochure-preview-header h1 {
+  color: #1e3a8a;
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.brochure-logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.logo-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.4);
+  border: 5px solid white;
+}
+
+.brochure-preview-content {
+  padding: 20px 0;
+}
+
+.brochure-title-section {
+  text-align: center;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+  color: white;
+  border-radius: 15px;
+  margin-bottom: 50px;
+  box-shadow: 0 15px 40px rgba(30, 58, 138, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.brochure-title-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: pulse 15s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.brochure-title-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+.brochure-title-section h1 {
+  font-size: 3rem;
+  margin-bottom: 25px;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.brochure-event-details {
+  position: relative;
+  z-index: 1;
+}
+
+.brochure-event-details p {
+  font-size: 1.3rem;
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+.brochure-hero-image {
+  margin: 40px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.brochure-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.brochure-section {
+  margin: 50px 0;
+  padding: 40px;
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #3b82f6;
+}
+
+.brochure-section h2 {
+  color: #1e3a8a;
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  border-bottom: 3px solid #3b82f6;
+  padding-bottom: 15px;
+  font-weight: 700;
+  position: relative;
+}
+
+.brochure-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+.brochure-section p {
+  line-height: 1.9;
+  color: #334155;
+  font-size: 1.15rem;
+  text-align: justify;
+}
+
+.brochure-images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  margin: 50px 0;
+}
+
+.brochure-image-item {
+  text-align: center;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transition: all 0.4s ease;
+  border: 2px solid #e3f2fd;
+}
+
+.brochure-image-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(30, 58, 138, 0.25);
+  border-color: #3b82f6;
+}
+
+.brochure-image-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.brochure-image-item:hover img {
+  transform: scale(1.1);
+}
+
+.brochure-image-item p {
+  padding: 25px;
+  font-weight: 600;
+  color: #1e3a8a;
+  font-size: 1.15rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e3f2fd 100%);
+}
+
+.brochure-topics-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.topic-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.topic-column li {
+  padding: 15px;
+  margin: 10px 0;
+  background: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  color: #334155;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-section {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+  color: white;
+  border-left: 5px solid white;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+  opacity: 0.3;
+}
+
+.highlight-section h2 {
+  color: white;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.highlight-section h2::after {
+  background: linear-gradient(90deg, white 0%, rgba(255,255,255,0.5) 100%);
+}
+
+.brochure-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 35px;
+  margin-top: 35px;
+  position: relative;
+  z-index: 1;
+}
+
+.highlight-item {
+  text-align: center;
+  padding: 30px 25px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.highlight-number {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.highlight-label {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.brochure-venue-section {
+  margin: 40px 0;
+  padding: 30px;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+
+.brochure-venue-section h2 {
+  color: #1e3a8a;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 10px;
+}
+
+.venue-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.venue-info img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.venue-details h3 {
+  color: #1e3a8a;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.venue-details p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #334155;
+}
+
+.brochure-cta {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.brochure-btn {
+  display: inline-block;
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+}
+
+.brochure-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
+}
+
+.brochure-footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: #1e3a8a;
+  color: white;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.brochure-footer p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .brochure-preview-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .brochure-title-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .brochure-title-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .brochure-images-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-info {
+    grid-template-columns: 1fr;
+  }
+
+  .brochure-highlights {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .highlight-number {
+    font-size: 2rem;
+  }
+}
+
+@media print {
+  .brochure-preview-container {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .brochure-btn {
+    display: none;
+  }
+}

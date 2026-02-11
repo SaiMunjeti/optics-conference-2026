@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
           <ul>
             <li><a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>Home</a></li>
             <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>About</a></li>
-            <li><a href="#schedule" onClick={(e) => { e.preventDefault(); scrollToSection('schedule'); }}>Schedule</a></li>
+            <li><a href="#program" onClick={(e) => { e.preventDefault(); scrollToSection('program'); }}>Program</a></li>
             <li><a href="#speakers" onClick={(e) => { e.preventDefault(); scrollToSection('speakers'); }}>Speakers</a></li>
           </ul>
         </div>
@@ -31,10 +31,10 @@ const Footer: React.FC = () => {
         <div className="footer-section">
           <h4>Information</h4>
           <ul>
+            <li><a href="#brochure" onClick={(e) => { e.preventDefault(); scrollToSection('brochure'); }}>Brochure</a></li>
+            <li><a href="#abstract" onClick={(e) => { e.preventDefault(); scrollToSection('abstract'); }}>Abstract</a></li>
             <li><a href="#registration" onClick={(e) => { e.preventDefault(); scrollToSection('registration'); }}>Registration</a></li>
             <li><a href="#sponsors" onClick={(e) => { e.preventDefault(); scrollToSection('sponsors'); }}>Sponsors</a></li>
-            <li><a href="#faq" onClick={(e) => { e.preventDefault(); scrollToSection('faq'); }}>FAQ</a></li>
-            <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>Contact</a></li>
           </ul>
         </div>
         

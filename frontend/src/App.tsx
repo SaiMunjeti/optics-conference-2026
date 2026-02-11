@@ -1,9 +1,11 @@
-import React from 'react';
+﻿import React from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
-import Schedule from './pages/Schedule';
+import Program from './pages/Program';
+import Brochure from './pages/Brochure';
+import Abstract from './pages/Abstract';
 import Speakers from './pages/Speakers';
 import Registration from './pages/Registration';
 import FAQ from './pages/FAQ';
@@ -21,8 +23,14 @@ function App() {
       <div id="about">
         <About />
       </div>
-      <div id="schedule">
-        <Schedule />
+      <div id="program">
+        <Program />
+      </div>
+      <div id="brochure">
+        <Brochure />
+      </div>
+      <div id="abstract">
+        <Abstract />
       </div>
       <div id="speakers">
         <Speakers />

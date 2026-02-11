@@ -6,10 +6,6 @@ const Sponsors: React.FC = () => {
     <div className="page-container sponsors-page-bg">
       <h1>Our Sponsors & Partners</h1>
       <div className="content">
-        <div className="sponsors-hero-image">
-          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1200&h=500&fit=crop" alt="Partnership and Collaboration" />
-        </div>
-
         <p className="intro-text">
           We are grateful to our sponsors and partners for their generous support in making 
           OPTICPHOTONSUMMIT2026 a success.

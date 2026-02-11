@@ -85,6 +85,76 @@ const FAQ: React.FC = () => {
           If you don't find what you're looking for, feel free to contact us.
         </p>
 
+        <h2>Venue Information</h2>
+        <div className="venue-info-section" style={{background: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)', color: 'white', padding: '40px', borderRadius: '15px', marginBottom: '40px'}}>
+          <h3 style={{color: 'white', fontSize: '1.8rem', marginBottom: '20px'}}>Amsterdam RAI Convention Centre</h3>
+          <p style={{color: 'rgba(255, 255, 255, 0.95)', fontSize: '1.1rem', marginBottom: '12px'}}>
+            <strong>📍 Address:</strong> Europaplein 24, 1078 GZ Amsterdam, Netherlands
+          </p>
+          <p style={{color: 'rgba(255, 255, 255, 0.95)', fontSize: '1.1rem', marginBottom: '12px'}}>
+            <strong>🚇 Transportation:</strong> Metro: RAI Station (5 min walk) | Tram: Lines 4 & 25
+          </p>
+          <p style={{color: 'rgba(255, 255, 255, 0.95)', fontSize: '1.1rem', marginBottom: '12px'}}>
+            <strong>✈️ Airport:</strong> Amsterdam Schiphol Airport (15 min by train)
+          </p>
+          <p style={{color: 'rgba(255, 255, 255, 0.95)', fontSize: '1.1rem', marginBottom: '20px'}}>
+            <strong>🏨 Accommodation:</strong> Multiple hotels within walking distance. Special conference rates available.
+          </p>
+          <div style={{display: 'flex', flexWrap: 'wrap', gap: '15px', marginTop: '25px'}}>
+            <span style={{background: 'rgba(255, 255, 255, 0.2)', padding: '10px 20px', borderRadius: '25px', fontSize: '1rem', fontWeight: 600, border: '2px solid rgba(255, 255, 255, 0.3)'}}>🎤 Modern AV</span>
+            <span style={{background: 'rgba(255, 255, 255, 0.2)', padding: '10px 20px', borderRadius: '25px', fontSize: '1rem', fontWeight: 600, border: '2px solid rgba(255, 255, 255, 0.3)'}}>🍽️ Catering</span>
+            <span style={{background: 'rgba(255, 255, 255, 0.2)', padding: '10px 20px', borderRadius: '25px', fontSize: '1rem', fontWeight: 600, border: '2px solid rgba(255, 255, 255, 0.3)'}}>📶 WiFi</span>
+            <span style={{background: 'rgba(255, 255, 255, 0.2)', padding: '10px 20px', borderRadius: '25px', fontSize: '1rem', fontWeight: 600, border: '2px solid rgba(255, 255, 255, 0.3)'}}>🅿️ Parking</span>
+            <span style={{background: 'rgba(255, 255, 255, 0.2)', padding: '10px 20px', borderRadius: '25px', fontSize: '1rem', fontWeight: 600, border: '2px solid rgba(255, 255, 255, 0.3)'}}>♿ Accessible</span>
+          </div>
+        </div>
+
+        <h2>Visa Information</h2>
+        <div className="visa-info-section" style={{background: '#f8f9fa', padding: '30px', borderRadius: '15px', marginBottom: '40px', border: '2px solid #e0e6ed'}}>
+          <h3 style={{color: '#1e3c72', fontSize: '1.4rem', marginBottom: '20px'}}>Visa Information for International Participants</h3>
+          <p style={{color: '#555', lineHeight: '1.8', marginBottom: '15px'}}>
+            The conference welcomes speakers and delegates from all over the world. Below is essential visa-related information to assist with your travel planning:
+          </p>
+          
+          <h4 style={{color: '#2a5298', fontSize: '1.2rem', marginTop: '25px', marginBottom: '15px'}}>1. Do You Need a Visa?</h4>
+          <p style={{color: '#555', lineHeight: '1.8', marginBottom: '15px'}}>
+            • Check if you require a visa to enter the Netherlands using the <strong>Netherlands Visa Information Tool</strong>
+          </p>
+          <p style={{color: '#555', lineHeight: '1.8', marginBottom: '15px'}}>
+            • Nationals of the <strong>EU, EEA, Switzerland, USA, Canada, Australia, Japan</strong>, and several other countries may enter the Netherlands for short-term visits (up to 90 days) without a visa.
+          </p>
+
+          <h4 style={{color: '#2a5298', fontSize: '1.2rem', marginTop: '25px', marginBottom: '15px'}}>2. Visa Types</h4>
+          <p style={{color: '#555', lineHeight: '1.8', marginBottom: '10px'}}>
+            • <strong>Schengen Visa (Short-Stay C Visa):</strong> This is the most common visa for attendees visiting for academic events, business meetings, or tourism (including conferences).
+          </p>
+          <p style={{color: '#555', lineHeight: '1.8', marginBottom: '15px'}}>
+            • <strong>National Visa (Long-Term D Visa):</strong> For those staying in the Netherlands for more than 90 days.
+          </p>
+
+          <h4 style={{color: '#2a5298', fontSize: '1.2rem', marginTop: '25px', marginBottom: '15px'}}>3. Required Documents</h4>
+          <ul style={{color: '#555', lineHeight: '1.8', marginLeft: '25px', marginBottom: '15px'}}>
+            <li>Valid passport (minimum 6 months validity from your planned date of arrival)</li>
+            <li>Invitation letter (issued by the conference organizers upon request)</li>
+            <li>Proof of accommodation (hotel booking or conference venue details)</li>
+            <li>Travel insurance covering medical expenses</li>
+            <li>Proof of financial means</li>
+            <li>Flight itinerary</li>
+          </ul>
+
+          <h4 style={{color: '#2a5298', fontSize: '1.2rem', marginTop: '25px', marginBottom: '15px'}}>4. Invitation Letter</h4>
+          <p style={{color: '#555', lineHeight: '1.8', marginBottom: '15px'}}>
+            If you need an invitation letter for your visa application, please contact us at <strong>info@opticphotonsummit2026.com</strong> with your registration confirmation and passport details.
+          </p>
+
+          <h4 style={{color: '#2a5298', fontSize: '1.2rem', marginTop: '25px', marginBottom: '15px'}}>5. Processing Time</h4>
+          <p style={{color: '#555', lineHeight: '1.8', marginBottom: '15px'}}>
+            Visa processing typically takes 15-30 days. We recommend applying at least 6-8 weeks before your travel date.
+          </p>
+        </div>
+
+        <h2>General FAQs</h2>
+
         <div className="faq-two-column-layout" style={{display: 'grid', gridTemplateColumns: '450px 1fr', gap: '60px', marginTop: '40px'}}>
           <div className="faq-left-image">
             <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=600&h=800&fit=crop" alt="Questions and Answers" />

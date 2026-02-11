@@ -20,6 +20,13 @@ body {
   background: #f5f7fa;
 }
 
-#home, #about, #schedule, #speakers, #registration, #faq, #contact {
+/* Reduce spacing between page sections */
+#home, #about, #program, #brochure, #abstract, #speakers, #registration, #faq, #sponsors, #contact {
   scroll-margin-top: 80px;
+  margin-bottom: -60px;
+}
+
+/* Ensure last section doesn't have negative margin */
+#contact {
+  margin-bottom: 0;
 }

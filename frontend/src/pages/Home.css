@@ -114,11 +114,17 @@
   font-weight: 300;
 }
 
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
 .cta-button {
-  background: #ffffff;
-  color: #1e3c72;
   border: none;
-  padding: 15px 45px;
+  padding: 15px 35px;
   font-size: 1rem;
   font-weight: 600;
   border-radius: 30px;
@@ -129,8 +135,26 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.cta-button:hover {
+.cta-button.primary {
+  background: #ffffff;
+  color: #1e3c72;
+}
+
+.cta-button.primary:hover {
   background: #a8d0ff;
+  color: #1e3c72;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.cta-button.secondary:hover {
+  background: #ffffff;
   color: #1e3c72;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
@@ -262,7 +286,7 @@
 
 /* Partners Logos Scrolling Section */
 .partners-logos-section {
-  padding: 100px 20px;
+  padding: 60px 20px;
   background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
   overflow: hidden;
   position: relative;

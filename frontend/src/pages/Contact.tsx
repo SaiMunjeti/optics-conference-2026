@@ -60,10 +60,6 @@ const Contact: React.FC = () => {
     <div className="page-container contact-page-bg">
       <h1>Contact Us</h1>
       <div className="content">
-        <div className="contact-hero-image">
-          <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200&h=500&fit=crop" alt="Contact Us" />
-        </div>
-
         <p className="intro-text">
           Have questions about OPTICPHOTONSUMMIT2026? We'd love to hear from you.
         </p>
@@ -103,6 +99,39 @@ const Contact: React.FC = () => {
               <h3>Conference Dates</h3>
               <p>November 16-18, 2026</p>
               <p className="days-info">3 Days Conference</p>
+            </div>
+
+            <div className="info-item">
+              <div className="info-icon-image">
+                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop" alt="Phone Contact" />
+              </div>
+              <h3>Phone Number</h3>
+              <p>+31 20 123 4567</p>
+              <p>+31 20 123 4568</p>
+            </div>
+
+            <div className="info-item">
+              <div className="info-icon-image">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=250&fit=crop" alt="Social Media" />
+              </div>
+              <h3>Follow Us</h3>
+              <p>LinkedIn: @OpticPhotonSummit</p>
+              <p>Twitter: @OPSummit2026</p>
+            </div>
+          </div>
+          
+          <h2>Conference Venue</h2>
+          <div className="venue-section">
+            <h3>Amsterdam RAI Convention Centre</h3>
+            <p>📍 Address: Europaplein 24, 1078 GZ Amsterdam, Netherlands</p>
+            <p>🚇 Transportation: Metro: RAI Station (5 min walk) | Tram: Lines 4 & 25</p>
+            <p>✈️ Airport: Amsterdam Schiphol Airport (15 min by train)</p>
+            <div className="venue-features">
+              <span className="feature-badge">🎤 Modern AV</span>
+              <span className="feature-badge">🍽️ Catering</span>
+              <span className="feature-badge">📶 WiFi</span>
+              <span className="feature-badge">🅿️ Parking</span>
+              <span className="feature-badge">♿ Accessible</span>
             </div>
           </div>
           

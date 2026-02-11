@@ -2,227 +2,232 @@ import React, { useState } from 'react';
 import './Page.css';
 
 const Registration: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    affiliation: '',
-    registrationType: 'Regular'
-  });
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedPeriod, setSelectedPeriod] = useState('');
+  const [accompanyingPerson, setAccompanyingPerson] = useState(false);
+  const [accommodation, setAccommodation] = useState('');
+  const [nights, setNights] = useState('');
 
-  const toggleCard = (index: number) => {
-    setExpandedCard(expandedCard === index ? null : index);
+  const pricingData = {
+    'Speaker': { earlyBird: 749, standard: 849, onSpot: 949 },
+    'Poster': { earlyBird: 449, standard: 549, onSpot: 649 },
+    'Delegate': { earlyBird: 899, standard: 999, onSpot: 1099 },
+    'Student': { earlyBird: 299, standard: 399, onSpot: 499 },
+    'e-Poster': { earlyBird: 149, standard: 199, onSpot: 249 }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const accommodationPricing = {
+    '2 Nights': { single: 360, double: 400, triple: 440 },
+    '3 Nights': { single: 540, double: 600, triple: 660 },
+    '4 Nights': { single: 720, double: 800, triple: 880 }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setMessage('');
-
-    const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
-
-    try {
-      const response = await fetch(`${API_URL}/api/registration`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setMessage(`Success! Your confirmation code is: ${data.confirmationCode}`);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          affiliation: '',
-          registrationType: 'Regular'
-        });
-      } else {
-        setMessage(`Error: ${data.message || 'Registration failed'}`);
-      }
-    } catch (error) {
-      setMessage('Error: Unable to connect to server');
-    } finally {
-      setLoading(false);
+  const calculateTotal = () => {
+    let total = 0;
+    
+    if (selectedCategory && selectedPeriod) {
+      const category = selectedCategory as keyof typeof pricingData;
+      const period = selectedPeriod as keyof typeof pricingData['Speaker'];
+      total += pricingData[category][period];
     }
+    
+    if (accompanyingPerson) {
+      total += 249;
+    }
+    
+    if (accommodation && nights) {
+      const nightKey = nights as keyof typeof accommodationPricing;
+      const roomType = accommodation as keyof typeof accommodationPricing['2 Nights'];
+      total += accommodationPricing[nightKey][roomType];
+    }
+    
+    return total;
   };
 
   return (
     <div className="page-container registration-page-bg">
       <h1>Registration</h1>
       <div className="content">
-        <div className="registration-hero-image">
-          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&h=500&fit=crop" alt="Conference Registration" />
+<p className="event-banner">OPTICPHOTONSUMMIT2026 | November 16-18, 2026 | Amsterdam, Netherlands</p>
+        
+        <div className="pricing-table-section">
+          <h2>Registration Fees</h2>
+          <div className="pricing-table-container">
+            <table className="pricing-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>
+                    <div className="deadline-header">Early Bird</div>
+                    <div className="deadline-date">February 15, 2026</div>
+                  </th>
+                  <th>
+                    <div className="deadline-header">Standard</div>
+                    <div className="deadline-date">April 15, 2026</div>
+                  </th>
+                  <th>
+                    <div className="deadline-header">On Spot</div>
+                    <div className="deadline-date">August 10, 2026</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="category-cell">Speaker</td>
+                  <td className="price-cell">$749</td>
+                  <td className="price-cell">$849</td>
+                  <td className="price-cell">$949</td>
+                </tr>
+                <tr>
+                  <td className="category-cell">Poster</td>
+                  <td className="price-cell">$449</td>
+                  <td className="price-cell">$549</td>
+                  <td className="price-cell">$649</td>
+                </tr>
+                <tr>
+                  <td className="category-cell">Delegate</td>
+                  <td className="price-cell">$899</td>
+                  <td className="price-cell">$999</td>
+                  <td className="price-cell">$1099</td>
+                </tr>
+                <tr>
+                  <td className="category-cell">Student</td>
+                  <td className="price-cell">$299</td>
+                  <td className="price-cell">$399</td>
+                  <td className="price-cell">$499</td>
+                </tr>
+                <tr>
+                  <td className="category-cell">e-Poster</td>
+                  <td className="price-cell">$149</td>
+                  <td className="price-cell">$199</td>
+                  <td className="price-cell">$249</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <p className="event-banner">OPTICPHOTONSUMMIT2026 | November 16-18, 2026 | Amsterdam, Netherlands</p>
-        
-        <h2>Registration Fees</h2>
-        <div className="pricing">
-          <div className="price-card">
-            <h3>Early Bird</h3>
-            <p className="price">$299</p>
-            <p>Until March 31, 2026</p>
-            <ul className="price-features">
-              <li>✓ All sessions access</li>
-              <li>✓ Conference materials</li>
-              <li>✓ Lunch included</li>
-            </ul>
-          </div>
-          <div className="price-card featured">
-            <div className="badge">POPULAR</div>
-            <h3>Regular</h3>
-            <p className="price">$399</p>
-            <p>Until May 31, 2026</p>
-            <ul className="price-features">
-              <li>✓ All sessions access</li>
-              <li>✓ Conference materials</li>
-              <li>✓ Lunch included</li>
-            </ul>
-          </div>
-          <div className="price-card">
-            <h3>Student</h3>
-            <p className="price">$199</p>
-            <p>With valid student ID</p>
-            <ul className="price-features">
-              <li>✓ All sessions access</li>
-              <li>✓ Conference materials</li>
-              <li>✓ Lunch included</li>
-            </ul>
-          </div>
-        </div>
-        
-        <h2>Register Now</h2>
-        {message && (
-          <div style={{
-            padding: '15px',
-            marginBottom: '20px',
-            borderRadius: '10px',
-            background: message.includes('Success') ? '#d4edda' : '#f8d7da',
-            color: message.includes('Success') ? '#155724' : '#721c24',
-            border: `1px solid ${message.includes('Success') ? '#c3e6cb' : '#f5c6cb'}`
-          }}>
-            {message}
-          </div>
-        )}
-        
-        <form onSubmit={handleSubmit} className="contact-form">
-          <div className="form-row">
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name *"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address *"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-row">
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone Number *"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="affiliation"
-              placeholder="Organization/University *"
-              value={formData.affiliation}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <select
-            name="registrationType"
-            value={formData.registrationType}
-            onChange={handleChange}
-            style={{
-              width: '100%',
-              padding: '15px',
-              border: '2px solid #e0e0e0',
-              borderRadius: '8px',
-              fontSize: '1rem',
-              fontFamily: 'inherit'
-            }}
-          >
-            <option value="Early Bird">Early Bird - $299</option>
-            <option value="Regular">Regular - $399</option>
-            <option value="Student">Student - $199</option>
-          </select>
-          <button type="submit" disabled={loading}>
-            {loading ? 'Submitting...' : 'Complete Registration'}
-          </button>
-        </form>
-        
-        <h2>What's Included</h2>
-        <div className="included-grid">
-          <div className={`included-item ${expandedCard === 0 ? 'expanded' : ''}`} onClick={() => toggleCard(0)}>
-            <div className="included-image">
-              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=250&fit=crop" alt="Conference Sessions" />
+        <div className="registration-form-section">
+          <h2>Complete Your Registration</h2>
+          
+          <div className="form-section">
+            <h3>Select Registration Category</h3>
+            <div className="radio-group">
+              {Object.keys(pricingData).map((category) => (
+                <label key={category} className="radio-label">
+                  <input
+                    type="radio"
+                    name="category"
+                    value={category}
+                    checked={selectedCategory === category}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                  />
+                  <span>{category}</span>
+                </label>
+              ))}
             </div>
-            <h4>All Sessions & Workshops</h4>
-            {expandedCard === 0 && <p>Full access to keynotes, technical sessions, and workshops</p>}
           </div>
-          <div className={`included-item ${expandedCard === 1 ? 'expanded' : ''}`} onClick={() => toggleCard(1)}>
-            <div className="included-image">
-              <img src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=400&h=250&fit=crop" alt="Conference Materials" />
+
+          <div className="form-section">
+            <h3>Select Registration Period</h3>
+            <div className="radio-group">
+              <label className="radio-label">
+                <input
+                  type="radio"
+                  name="period"
+                  value="earlyBird"
+                  checked={selectedPeriod === 'earlyBird'}
+                  onChange={(e) => setSelectedPeriod(e.target.value)}
+                />
+                <span>Early Bird (Before Feb 15, 2026)</span>
+              </label>
+              <label className="radio-label">
+                <input
+                  type="radio"
+                  name="period"
+                  value="standard"
+                  checked={selectedPeriod === 'standard'}
+                  onChange={(e) => setSelectedPeriod(e.target.value)}
+                />
+                <span>Standard (Before Apr 15, 2026)</span>
+              </label>
+              <label className="radio-label">
+                <input
+                  type="radio"
+                  name="period"
+                  value="onSpot"
+                  checked={selectedPeriod === 'onSpot'}
+                  onChange={(e) => setSelectedPeriod(e.target.value)}
+                />
+                <span>On Spot (After Apr 15, 2026)</span>
+              </label>
             </div>
-            <h4>Conference Materials</h4>
-            {expandedCard === 1 && <p>Digital proceedings and presentation materials</p>}
           </div>
-          <div className={`included-item ${expandedCard === 2 ? 'expanded' : ''}`} onClick={() => toggleCard(2)}>
-            <div className="included-image">
-              <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&h=250&fit=crop" alt="Meals and Refreshments" />
+
+          <div className="form-section">
+            <label className="checkbox-label">
+              <input
+                type="checkbox"
+                checked={accompanyingPerson}
+                onChange={(e) => setAccompanyingPerson(e.target.checked)}
+              />
+              <span>Include Accompanying Person ($249 Extra)</span>
+            </label>
+          </div>
+
+          <div className="form-section">
+            <h3>Accommodation (Optional)</h3>
+            <div className="accommodation-grid">
+              <div>
+                <label>Room Type:</label>
+                <select value={accommodation} onChange={(e) => setAccommodation(e.target.value)}>
+                  <option value="">Select Room Type</option>
+                  <option value="single">Single Occupancy</option>
+                  <option value="double">Double Occupancy</option>
+                  <option value="triple">Triple Occupancy</option>
+                </select>
+              </div>
+              <div>
+                <label>Number of Nights:</label>
+                <select value={nights} onChange={(e) => setNights(e.target.value)}>
+                  <option value="">Select Nights</option>
+                  <option value="2 Nights">2 Nights</option>
+                  <option value="3 Nights">3 Nights</option>
+                  <option value="4 Nights">4 Nights</option>
+                </select>
+              </div>
             </div>
-            <h4>Meals & Refreshments</h4>
-            {expandedCard === 2 && <p>Lunch, coffee breaks, and networking reception</p>}
+            
+            {accommodation && nights && (
+              <div className="accommodation-price">
+                Accommodation Cost: ${accommodationPricing[nights as keyof typeof accommodationPricing][accommodation as keyof typeof accommodationPricing['2 Nights']]}
+              </div>
+            )}
           </div>
-          <div className={`included-item ${expandedCard === 3 ? 'expanded' : ''}`} onClick={() => toggleCard(3)}>
-            <div className="included-image">
-              <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&h=250&fit=crop" alt="Networking Events" />
+
+          <div className="total-section">
+            <h2>Total Payment: ${calculateTotal()}</h2>
+          </div>
+
+          <form className="contact-form">
+            <h3>Personal Information</h3>
+            <div className="form-row">
+              <input type="text" placeholder="Full Name *" required />
+              <input type="email" placeholder="Email Address *" required />
             </div>
-            <h4>Networking Events</h4>
-            {expandedCard === 3 && <p>Connect with peers and industry leaders</p>}
-          </div>
-          <div className={`included-item ${expandedCard === 4 ? 'expanded' : ''}`} onClick={() => toggleCard(4)}>
-            <div className="included-image">
-              <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=250&fit=crop" alt="Certificate" />
+            <div className="form-row">
+              <input type="tel" placeholder="Phone Number *" required />
+              <input type="text" placeholder="Organization/University *" required />
             </div>
-            <h4>Certificate</h4>
-            {expandedCard === 4 && <p>Official certificate of attendance</p>}
-          </div>
-          <div className={`included-item ${expandedCard === 5 ? 'expanded' : ''}`} onClick={() => toggleCard(5)}>
-            <div className="included-image">
-              <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=250&fit=crop" alt="Photo Opportunities" />
+            <div className="form-row">
+              <input type="text" placeholder="Country *" required />
+              <input type="text" placeholder="City *" required />
             </div>
-            <h4>Photo Opportunities</h4>
-            {expandedCard === 5 && <p>Professional photography and group photos</p>}
-          </div>
+            <textarea rows={4} placeholder="Special Requirements (Optional)"></textarea>
+            <button type="submit" className="submit-registration-btn">
+              Proceed to Payment
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -230,3 +235,5 @@ const Registration: React.FC = () => {
 };
 
 export default Registration;
+
+
